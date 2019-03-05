@@ -9,6 +9,7 @@
   "author": "Sahil Jaidka",
   "license": "ISC",
   "dependencies": {
-    "hapi": "^17.8.4"
+    "hapi": "^17.8.4",
+    "inert": "^5.1.2"
   }
 }

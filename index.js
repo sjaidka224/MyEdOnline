@@ -54,7 +54,19 @@ server.route({
 
 
 
+
 const init = async () => {
+
+  await server.register(require('inert'));
+
+    server.route({
+        method: 'GET',
+        path: '/',
+        handler: (request, h) => {
+
+            return h.file('index.html');
+        }
+    });
 
   await server.start();
   console.log(`Server running at: ${server.info.uri}`);
