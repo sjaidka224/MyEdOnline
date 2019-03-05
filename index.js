@@ -19,16 +19,7 @@ server.route({
   path: '/getStudents',
   handler: (request, reply) => {
 
-    var fs = require("fs");
-    console.log("\n *STARTING* \n");
-
-    var contents = fs.readFileSync("./Data-Files/users.json");
-
-    var jsonContent = JSON.parse(contents);
-
-    console.log("User Name:", jsonContent);
-
-    return jsonContent;
+    return parseDataFromAFile("./Data-Files/users.json");
 
   }
 });
@@ -38,22 +29,20 @@ server.route({
   path: '/getStudentData',
   handler: (request, reply) => {
 
-    var fs = require("fs");
-    console.log("\n *STARTING* \n");
-
-    var contents = fs.readFileSync("./Data-Files/quest_pathways.json");
-
-    var jsonContent = JSON.parse(contents);
-
-    console.log("User Name:", jsonContent);
-
-    return jsonContent;
+    return parseDataFromAFile("./Data-Files/quest_pathways.json");
 
   }
 });
 
 
+function parseDataFromAFile (filePath) {
 
+  var fs = require("fs");
+  var contents = fs.readFileSync(filePath);
+  var jsonContent = JSON.parse(contents);
+  return jsonContent;
+
+}
 
 
 const init = async () => {
