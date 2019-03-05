@@ -25,8 +25,6 @@ function displayAllStudents () {
             var questName = studentMarks[j].quest_paths[k].quest.name;
             var questMarks = studentMarks[j].quest_paths[k].mark.mark;
 
-
-
             var newCell = nestedTable.insertRow (k);
             var newCell1 = newCell.insertCell(0);
             var newCell2 = newCell.insertCell(1);
