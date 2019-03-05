@@ -1,19 +1,17 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title></title>
 
-
+    <script type="text/javascript" src="display-student-info.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="//cdn.muicss.com/mui-0.9.41/css/mui.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="//cdn.muicss.com/mui-0.9.41/js/mui.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-    <script type="text/javascript" src="display-student-info.js"></script>
     <style>
       /* Add font-smoothing */
       html,
@@ -25,18 +23,24 @@
         -moz-osx-font-smoothing: grayscale;
         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
       }
+      /*#display-student-info-table{*/
+        /*!*margin: 2%;*!*/
+        /*width: 100%;*/
+      /*}*/
+      body{
+        margin: 2%;
+      }
     </style>
 
   </head>
   <body onload="getStudentMarks();">
 
-    <table class="mui-table mui-table--bordered" id="display-student-info-table">
-      <table class="mui-table mui-table--bordered" id="display-student">
+    <h2 style="text-align: center">Students' Monthly Performance</h2>
+    <table class="table table-bordered" id="display-student-info-table">
+      <!--<table class="mui-table mui-table&#45;&#45;bordered" id="display-student">-->
 
-  </table>
-
+  <!--</table>-->
 </table>
 
-  <div id="chart_div"></div>
   </body>
-</html>>
+</html>

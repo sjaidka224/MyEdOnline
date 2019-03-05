@@ -12,13 +12,11 @@ const server = Hapi.server ({
 
 });
 
-
-
 server.route({
   method: 'GET',
   path: '/getStudents',
   handler: (request, reply) => {
-
+    
     return parseDataFromAFile("./Data-Files/users.json");
 
   }
