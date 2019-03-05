@@ -2,6 +2,7 @@
 
 //Require Hapi
 const Hapi = require ('hapi');
+const Path = require('path');
 
 //Create new Hapi server object with a host and a port number to listen on
 const server = Hapi.server ({
@@ -11,44 +12,44 @@ const server = Hapi.server ({
 
 });
 
+
+
 server.route({
-    method: 'GET',
-    path: '/getStudents',
-    handler: (request, reply) => {
+  method: 'GET',
+  path: '/getStudents',
+  handler: (request, reply) => {
 
-      var fs = require("fs");
-      console.log("\n *STARTING* \n");
+    var fs = require("fs");
+    console.log("\n *STARTING* \n");
 
-      var contents = fs.readFileSync("./Data-Files/users.json");
+    var contents = fs.readFileSync("./Data-Files/users.json");
 
-      var jsonContent = JSON.parse(contents);
+    var jsonContent = JSON.parse(contents);
 
-      console.log("User Name:", jsonContent);
+    console.log("User Name:", jsonContent);
 
+    return jsonContent;
 
-      return 'Hello, world!';
-
-    }
+  }
 });
 
 server.route({
-    method: 'GET',
-    path: '/getStudentData',
-    handler: (request, reply) => {
+  method: 'GET',
+  path: '/getStudentData',
+  handler: (request, reply) => {
 
-      var fs = require("fs");
-      console.log("\n *STARTING* \n");
+    var fs = require("fs");
+    console.log("\n *STARTING* \n");
 
-      var contents = fs.readFileSync("./Data-Files/quest_pathways.json");
+    var contents = fs.readFileSync("./Data-Files/quest_pathways.json");
 
-      var jsonContent = JSON.parse(contents);
+    var jsonContent = JSON.parse(contents);
 
-      console.log("User Name:", jsonContent);
+    console.log("User Name:", jsonContent);
 
+    return jsonContent;
 
-      return jsonContent;
-
-    }
+  }
 });
 
 
@@ -59,14 +60,23 @@ const init = async () => {
 
   await server.register(require('inert'));
 
-    server.route({
-        method: 'GET',
-        path: '/',
-        handler: (request, h) => {
+  server.route({
+    method: 'GET',
+    path: '/',
+    handler: (request, h) => {
 
-            return h.file('index.html');
-        }
-    });
+      return h.file('index.html');
+    }
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/display-student-info.js',
+    handler: (request, h) => {
+
+      return h.file('display-student-info.js');
+    }
+  });
 
   await server.start();
   console.log(`Server running at: ${server.info.uri}`);
@@ -75,8 +85,8 @@ const init = async () => {
 
 process.on('unhandledRejection', (err) => {
 
-    console.log(err);
-    process.exit(1);
+  console.log(err);
+  process.exit(1);
 });
 
 init();
